@@ -8,6 +8,8 @@ sqlalchemy = "*"
 flask-migrate = "*"
 pytest = "*"
 flask-restful = "*"
+flask = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 
