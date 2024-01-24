@@ -6,7 +6,7 @@ from flask import jsonify
 order_schema = OrderSchema()
 orders_schema = OrderSchema(many=True)
 
-class OrderResource(Resource):
+class Order(Resource):
     def get(self, order_id):
         order = Order.query.get_or_404(order_id)
         return jsonify(order_schema.dump(order))
@@ -19,7 +19,7 @@ class OrderResource(Resource):
         parser.add_argument('total_price', type=float)
         args = parser.parse_args()
 
-        # Update order attributes
+
         order.product_name = args['product_name'] or order.product_name
         order.quantity = args['quantity'] or order.quantity
         order.total_price = args['total_price'] or order.total_price
@@ -33,7 +33,7 @@ class OrderResource(Resource):
         db.session.commit()
         return '', 204
 
-class OrdersResource(Resource):
+class Orders(Resource):
     def get(self):
         orders = Order.query.all()
         return jsonify(orders_schema.dump(orders))

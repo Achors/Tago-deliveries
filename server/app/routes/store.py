@@ -6,7 +6,7 @@ from flask import jsonify
 store_schema = StoreSchema()
 stores_schema = StoreSchema(many=True)
 
-class StoreResource(Resource):
+class Store(Resource):
     def get(self, store_id):
         store = Store.query.get_or_404(store_id)
         return jsonify(store_schema.dump(store))

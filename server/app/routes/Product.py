@@ -6,7 +6,7 @@ from flask import jsonify
 product_schema = ProductSchema()
 products_schema = ProductSchema(many=True)
 
-class ProductResource(Resource):
+class Product(Resource):
     def get(self, product_id):
         product = Product.query.get_or_404(product_id)
         return jsonify(product_schema.dump(product))
@@ -33,7 +33,7 @@ class ProductResource(Resource):
         db.session.commit()
         return '', 204
 
-class ProductsResource(Resource):
+class Products(Resource):
     def get(self):
         products = Product.query.all()
         return jsonify(products_schema.dump(products))

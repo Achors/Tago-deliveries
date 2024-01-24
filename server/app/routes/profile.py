@@ -9,7 +9,7 @@ profiles_schema = ProfileSchema(many=True)
 
 
 
-class ProfileResource(Resource):
+class Profile(Resource):
     def get(self, profile_id):
         profile = Profile.query.get_or_404(profile_id)
         return jsonify(profile_schema.dump(profile))
@@ -38,7 +38,7 @@ class ProfileResource(Resource):
         db.session.commit()
         return '', 204
 
-class ProfilesResource(Resource):
+class Profiles(Resource):
     def get(self):
         profiles = Profile.query.all()
         return jsonify(profiles_schema.dump(profiles))

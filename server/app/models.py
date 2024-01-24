@@ -59,3 +59,15 @@ class Store(db.Model, SerializerMixin):
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'), nullable=False)
 
 
+
+class Authorization(db.Model, SerializerMixin):
+    __tablename__="authorization"
+
+    authorization_id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
+    username = db.Column(db.String(255), nullable=False)
+    last_login = db.Column(db.DateTime)
+
+    user = db.relationship('User', backref=db.backref('authorizations', lazy=True))
+
+

@@ -32,7 +32,7 @@ class User(Resource):
         db.session.commit()
         return '', 204
 
-class User(Resource):
+class Users(Resource):
     def get(self):
         users = User.query.all()
         return jsonify(users_schema.dump(users))
