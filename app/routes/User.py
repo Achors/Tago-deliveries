@@ -1,12 +1,12 @@
 from flask_restful import Resource, reqparse
-from ..models import db, User
+from .models import db, User
 from .schema import UserSchema
 from flask import jsonify
 
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
 
-class User(Resource):
+class UserResource(Resource):
     def get(self, user_id):
         user = User.query.get_or_404(user_id)
         return jsonify(user_schema.dump(user))
@@ -32,7 +32,7 @@ class User(Resource):
         db.session.commit()
         return '', 204
 
-class Users(Resource):
+class UsersResource(Resource):
     def get(self):
         users = User.query.all()
         return jsonify(users_schema.dump(users))

@@ -1,12 +1,12 @@
 from flask_restful import Resource, reqparse
-from ..models import db, Orders
+from .models import db, Orders
 from .schema import OrdersSchema
 from flask import jsonify
 
 order_schema = OrdersSchema()
 orders_schema = OrdersSchema(many=True)
 
-class Order(Resource):
+class OrderResource(Resource):
     def get(self, order_id):
         order = Orders.query.get_or_404(order_id)
         return jsonify(order_schema.dump(order))
@@ -33,7 +33,7 @@ class Order(Resource):
         db.session.commit()
         return '', 204
 
-class Orders(Resource):
+class OrdersResource(Resource):
     def get(self):
         orders = Orders.query.all()
         return jsonify(orders_schema.dump(orders))
@@ -45,7 +45,7 @@ class Orders(Resource):
         parser.add_argument('total_price', type=float, required=True)
         args = parser.parse_args()
 
-        new_order = Order(
+        new_order = Orders(
             product_name=args['product_name'],
             quantity=args['quantity'],
             total_price=args['total_price']

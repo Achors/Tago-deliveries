@@ -1,8 +1,7 @@
-// import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
-import ExplorePage from './Products';
-import CartPage from './cartPage';
+import ExplorePage from './Components/Products';
+import CartPage from './Components/cartPage';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -27,8 +26,11 @@ function App() {
 
         <hr />
 
-        <Route exact path="/" render={() => <ExplorePage addToCart={addToCart} />} />
-        <Route path="/cart" render={() => <CartPage cart={cart} />} />
+        
+        <Routes>
+          <Route path="/" element={<ExplorePage addToCart={addToCart} />} />
+          <Route path="/cart" element={<CartPage cart={cart} />} />
+        </Routes>
       </div>
     </Router>
   );

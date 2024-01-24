@@ -1,11 +1,11 @@
 from flask_restful import Resource, reqparse
-from ..models import db, Authorization
+from .models import db, Authorization
 from .schema import AuthorizationSchema
 
 authorization_schema = AuthorizationSchema()
 authorizations_schema = AuthorizationSchema(many=True)
 
-class Authorization(Resource):
+class AuthorizationResource(Resource):
     def get(self, authorization_id):
         authorization = Authorization.query.get_or_404(authorization_id)
         return authorization_schema.dump(authorization)
@@ -34,7 +34,7 @@ class Authorization(Resource):
         db.session.commit()
         return {'message': 'Authorization deleted successfully'}
 
-class Authorizations(Resource):
+class AuthorizationsResource(Resource):
     def get(self):
         authorizations = Authorization.query.all()
         return authorizations_schema.dump(authorizations)

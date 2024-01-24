@@ -1,5 +1,5 @@
 from flask_restful import Resource, reqparse
-from ..models import db, Profile
+from .models import db, Profile
 from .schema import ProfileSchema
 from flask import jsonify
 
@@ -9,7 +9,7 @@ profiles_schema = ProfileSchema(many=True)
 
 
 
-class Profile(Resource):
+class ProfileResource(Resource):
     def get(self, profile_id):
         profile = Profile.query.get_or_404(profile_id)
         return jsonify(profile_schema.dump(profile))
@@ -38,7 +38,7 @@ class Profile(Resource):
         db.session.commit()
         return '', 204
 
-class Profiles(Resource):
+class ProfilesResource(Resource):
     def get(self):
         profiles = Profile.query.all()
         return jsonify(profiles_schema.dump(profiles))
