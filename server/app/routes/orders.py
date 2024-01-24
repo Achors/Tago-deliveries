@@ -1,18 +1,18 @@
 from flask_restful import Resource, reqparse
-from models import db, Order
-from schema import OrderSchema
+from ..models import db, Orders
+from .schema import OrdersSchema
 from flask import jsonify
 
-order_schema = OrderSchema()
-orders_schema = OrderSchema(many=True)
+order_schema = OrdersSchema()
+orders_schema = OrdersSchema(many=True)
 
 class Order(Resource):
     def get(self, order_id):
-        order = Order.query.get_or_404(order_id)
+        order = Orders.query.get_or_404(order_id)
         return jsonify(order_schema.dump(order))
 
     def put(self, order_id):
-        order = Order.query.get_or_404(order_id)
+        order = Orders.query.get_or_404(order_id)
         parser = reqparse.RequestParser()
         parser.add_argument('product_name', type=str)
         parser.add_argument('quantity', type=int)
@@ -28,14 +28,14 @@ class Order(Resource):
         return jsonify(order_schema.dump(order))
 
     def delete(self, order_id):
-        order = Order.query.get_or_404(order_id)
+        order = Orders.query.get_or_404(order_id)
         db.session.delete(order)
         db.session.commit()
         return '', 204
 
 class Orders(Resource):
     def get(self):
-        orders = Order.query.all()
+        orders = Orders.query.all()
         return jsonify(orders_schema.dump(orders))
 
     def post(self):
