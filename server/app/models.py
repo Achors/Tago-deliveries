@@ -45,7 +45,7 @@ class Orders(db.Model, SerializerMixin):
     order_id = db.Column(db.Integer, primary_key=True)
     quantity = db.Column(db.String(50), nullable=False)
     date = db.Column(db.String(50), nullable=False)
-    product_id = db.column(db.integer, db.foreignKey('product.product_id'))
+    product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
 
 

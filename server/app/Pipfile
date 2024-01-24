@@ -11,6 +11,7 @@ flask-restful = "*"
 flask = "*"
 flask-sqlalchemy = "*"
 marshmallow-sqlalchemy = "*"
+alembic = "*"
 
 [dev-packages]
 

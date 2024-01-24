@@ -6,5 +6,5 @@ app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 
-from app.routes.routes import routes
+from app.routes import routes
 app.register_blueprint(routes)
