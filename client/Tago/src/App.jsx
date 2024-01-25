@@ -14,35 +14,33 @@ function App() {
   return (
     <Router>
       <div id="home">
-      <div></div>
+        <div></div>
         <div id='nav'>
-        <div>
-        <img src='' alt='logo'/>
-        </div>
           <div>
-          <span className="logo">TAGO - Del</span>
+            <img src='' alt='logo' />
           </div>
-        <div className='nav-list'>
-          <div id='log-list'>
-            <Link id='log-list' to="/">Login</Link>
+          <div>
+            <span className="logo">TAGO - Del</span>
           </div>
-            <div>
-              <Link id='log-list' to="/">Explore</Link>
+          <div className='nav-list'>
+            <div id='log-list'>
+              <Link to="/login">Login</Link>
             </div>
             <div>
-              <Link id='log-list' to="/cart">Cart ({cart.length})</Link>
+              <Link to="/">Explore</Link>
+            </div>
+            <div>
+              <Link to="/cart">Cart ({cart.length})</Link>
             </div>
           </div>
-          </div>
-
+        </div>
         <hr />
         <div></div>
 
-        
         <Routes>
           <Route path="/" element={<ExplorePage addToCart={addToCart} />} />
-          <Route path="/Components/cart" element={<CartPage cart={cart} />} />
-          <Route path="/Component/Login" element={<Login />} />
+          <Route path="/cart" element={<CartPage cart={cart} />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </Router>

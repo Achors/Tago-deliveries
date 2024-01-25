@@ -9,8 +9,7 @@ const Login = () => {
   const history = useHistory();
 
   const login = () => {
-    // Add your authentication logic here
-    // For a demo, you can simply log the credentials
+    // authentication logic 
     console.log('Username:', username);
     console.log('Password:', password);
 
