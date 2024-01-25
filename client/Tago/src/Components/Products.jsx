@@ -7,6 +7,10 @@ const ExplorePage = ({ addToCart }) => {
   const [products, setProducts] = useState([
     { id: 1, name: 'Product 1', store: 'Store A', price: 20 },
     { id: 2, name: 'Product 2', store: 'Store B', price: 25 },
+    { id: 2, name: 'Product 2', store: 'Store B', price: 25 },
+    { id: 2, name: 'Product 2', store: 'Store B', price: 25 },
+    { id: 2, name: 'Product 2', store: 'Store B', price: 25 },
+    { id: 2, name: 'Product 2', store: 'Store B', price: 25 },
   ]);
 
   const handleOrder = (product) => {
@@ -16,7 +20,9 @@ const ExplorePage = ({ addToCart }) => {
 
   return (
     <div id='explore-pg'>
+      <div>
       <h2>Explore Products</h2>
+      </div>
       {products.map((product) => (
         <div id='cards' key={product.id}>
           <h3>{product.name}</h3>

@@ -1,16 +1,76 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body{
+  background-color: rgb(172, 172, 172);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
 }
-#explore-pg{
-  max-width: 80px;
-  border:2px solid green;
-  height: 80px;
+#home{
+  width: 100%;
+  border: 2px solid red;
+}
+.App-body {
+  background-color: rgba(0, 0, 0, 0.8);
+  bottom: 0px;
+  margin: auto;
+  height: 91vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  overflow: hidden;
 }
 
+#nav{
+  width: 1490px;
+  margin: 10px 0px;
+  border: 2px solid red;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(5, 59, 43);
+}
+#explore-pg{
+  max-width: 1490px;
+  border:2px solid green;
+  /* height: 80px; */
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+#cards{
+  width: 100px;
+  height: 30vh;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+  display: block;
+  flex-direction: column;
+  border: 2px solid black;
+}
 #order-btn{
   color:aqua;
   
+}
+
+.nav-list{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: end;
+  font-size: 18px;
+  width: 450px;
+  height: 40px;
+  gap: 80px;
+  border: 1px solid red;
+  color: rgb(255, 255, 255);
+
 }
