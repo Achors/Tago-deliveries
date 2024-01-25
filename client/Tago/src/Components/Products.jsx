@@ -1,17 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-// import App from '../App';
-import '../App.css'
+import { fetchProducts } from '../Services/api';
+import '../App.css';
 
 const ExplorePage = ({ addToCart }) => {
-  const [products, setProducts] = useState([
-    { id: 1, name: 'Product 1', store: 'Store A', price: 20 },
-    { id: 2, name: 'Product 2', store: 'Store B', price: 25 },
-    { id: 2, name: 'Product 2', store: 'Store B', price: 25 },
-    { id: 2, name: 'Product 2', store: 'Store B', price: 25 },
-    { id: 2, name: 'Product 2', store: 'Store B', price: 25 },
-    { id: 2, name: 'Product 2', store: 'Store B', price: 25 },
-  ]);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts()
+      .then(response => {
+        setProducts(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching products:', error);
+      });
+  }, []);
 
   const handleOrder = (product) => {
     addToCart(product);
@@ -21,7 +24,7 @@ const ExplorePage = ({ addToCart }) => {
   return (
     <div id='explore-pg'>
       <div>
-      <h2>Explore Products</h2>
+        <h2>Explore Products</h2>
       </div>
       {products.map((product) => (
         <div id='cards' key={product.id}>

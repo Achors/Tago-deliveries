@@ -39,11 +39,11 @@ class Product(db.Model, SerializerMixin):
 
 
 class Orders(db.Model, SerializerMixin):
-    __tablename__ = "order"
+    __tablename__ = "orders"
 
     order_id = db.Column(db.Integer, primary_key=True)
-    quantity = db.Column(db.Integer(50), nullable=False)
-    date = db.Column(db.Varchar(50), nullable=False)
+    quantity = db.Column(db.Integer, nullable=False)
+    date = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
 
@@ -54,7 +54,7 @@ class Store(db.Model, SerializerMixin):
     store_id = db.Column(db.Integer, primary_key=True)
     store_name = db.Column(db.String(50), nullable=False)
     city = db.Column(db.String(50), nullable=False)
-    status = db.Column(db.Integer, nullable=False)
+    status = db.Column(db.String(25), nullable=False)
     product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'), nullable=False)
 
 

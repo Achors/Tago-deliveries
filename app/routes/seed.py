@@ -18,65 +18,61 @@ with app.app_context():
     print("👤 Users seeded!")
 
 
-    # profiles = [
-    #     {'firstname': 'Hitler', 'lastname': 'Adolf', 'contact_info': '1234567890', 'city': 'Kiambu'},
-    #     {'firstname': 'Tenant', 'lastname': 'Earth', 'contact_info': '9876543210', 'city': 'Juja'},
-    
-    # ]
+    profiles = [
+        {'firstname': 'Hitler', 'lastname': 'Adolf', 'contact_info': '1234567890', 'city': 'Kiambu'},
+        {'firstname': 'Tenant', 'lastname': 'Earth', 'contact_info': '9876543210', 'city': 'Juja'},
+    ]
 
-    # for profile in profiles:
-    #     profile = Profile(**profile, user=User.query.filter_by(username=profiles['username']).first())
-    #     db.session.add(profile)
+    for profile_data in profiles:
+        user = User.query.filter_by(username=profile_data['username']).first()
+        profile = Profile(**profile_data, user=user)
+        db.session.add(profile)
 
-    # db.session.commit()
-    # print("👤 Profiles seeded!")
+    db.session.commit()
+    print("👤 Profiles seeded!")
     
         
     
-    # products = [
-    #     {'product_name': 'Samsung TV', 'Price': '67890'},
-    #     {'product_name': 'LG TV', 'Price': '76890'},
-        
-    
-    # ]
+    products = [
+        {'product_name': 'Samsung TV', 'Price': '67890'},
+        {'product_name': 'LG TV', 'Price': '76890'},
+    ]
 
-    # for product in products:
-    #     product = Product(**products)
-    #     db.session.add(product)
+    for product_data in products:
+        product = Product(**product_data)
+        db.session.add(product)
 
-    # db.session.commit()
-    # print("👤 Products seeded!")
+    db.session.commit()
+    print("👤 Products seeded!")
     
     
     
     
-    # orders = [
-    #     {'date': '2024-01-23', 'quantity': '4'},
-    #     {'date': '2024-03-22', 'quantity': '2'},
-        
-    # ]
+    orders = [
+        {'date': '2024-01-23', 'quantity': '4'},
+        {'date': '2024-03-22', 'quantity': '2'},
+    ]
 
-    # for order in orders:
-    #     order = Orders(**orders)
-    #     db.session.add(order)
+    for order_data in orders:
+        order = Orders(**order_data)
+        db.session.add(order)
 
-    # db.session.commit()
-    # print("👤 orders seeded!")
+    db.session.commit()
+    print("👤 Orders seeded!")
 
-    # stores = [
-    #     {'store_name': 'naivas', 'city': 'Nairobi', 'status': 'Available'},
-    #     {'store_name': 'naivas', 'city': 'Nairobi', 'status': 'Available'},
-    
-    # ]
+    stores = [
+        {'store_name': 'naivas', 'city': 'Nairobi', 'status': 'Available'},
+        {'store_name': 'naivas', 'city': 'Nairobi', 'status': 'Available'},
+    ]
 
-    # for store in stores:
-    #     store = Store(**stores)
-    #     db.session.add(store)
+    for store_data in stores:
+        store = Store(**store_data)
+        db.session.add(store)
 
-    # db.session.commit()
-    # print("👤 Stores seeded!")
+    db.session.commit()
+    print("👤 Stores seeded!")
 
-    # print(" Database seeding completed!")
+    print(" Database seeding completed!")
 
 
 
