@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 import ExplorePage from './Components/Products';
 import CartPage from './Components/cartPage';
-import Navbar from './Components/navbar';
+import Login from './Components/Login';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -23,14 +23,14 @@ function App() {
           <span className="logo">TAGO - Del</span>
           </div>
         <div className='nav-list'>
-          <div>
-            <Link to="/">Login</Link>
+          <div id='log-list'>
+            <Link id='log-list' to="/">Login</Link>
           </div>
             <div>
-              <Link to="/">Explore</Link>
+              <Link id='log-list' to="/">Explore</Link>
             </div>
             <div>
-              <Link to="/cart">Cart ({cart.length})</Link>
+              <Link id='log-list' to="/cart">Cart ({cart.length})</Link>
             </div>
           </div>
           </div>
@@ -41,8 +41,8 @@ function App() {
         
         <Routes>
           <Route path="/" element={<ExplorePage addToCart={addToCart} />} />
-          <Route path="/cart" element={<CartPage cart={cart} />} />
-          <Route path="/cart" element={<Navbar />} />
+          <Route path="/Components/cart" element={<CartPage cart={cart} />} />
+          <Route path="/Component/Login" element={<Login />} />
         </Routes>
       </div>
     </Router>
