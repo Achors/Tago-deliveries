@@ -34,7 +34,7 @@ class ProductResource(Resource):
 class ProductsResource(Resource):
     def get(self):
         products = Product.query.all()
-        return jsonify(products_schema.dump(products))
+        return jsonify(products_schema.dump(products, many=True))
 
     def post(self):
         parser = reqparse.RequestParser()

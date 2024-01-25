@@ -42,9 +42,9 @@ class Orders(db.Model, SerializerMixin):
     __tablename__ = "order"
 
     order_id = db.Column(db.Integer, primary_key=True)
-    quantity = db.Column(db.String(50), nullable=False)
-    date = db.Column(db.String(50), nullable=False)
-    product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'))
+    quantity = db.Column(db.Integer(50), nullable=False)
+    date = db.Column(db.Varchar(50), nullable=False)
+    product_id = db.Column(db.Integer, db.ForeignKey('product.product_id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
 
 

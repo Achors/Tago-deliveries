@@ -1,7 +1,8 @@
 from flask import Flask
 from flask_migrate import Migrate
-from models import db
-from route import routes
+from flask_cors import CORS
+from .models import db
+from .route import routes
 
 app = Flask(__name__)
 
@@ -12,7 +13,10 @@ db.init_app(app)
 migrate = Migrate(app, db)
 
 
+CORS(app)
+
+
 app.register_blueprint(routes)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='127.0.0.1', port=5000,debug=True)

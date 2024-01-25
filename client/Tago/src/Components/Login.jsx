@@ -1,20 +1,18 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import App from '../App';
-import '../App.css';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const login = () => {
-    // authentication logic 
+    // authentication logic
     console.log('Username:', username);
     console.log('Password:', password);
 
-    // Redirect to another page after successful login
-    history.push('/dashboard');
+    
+    navigate('/Products'); 
   };
 
   return (

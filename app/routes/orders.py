@@ -36,7 +36,7 @@ class OrderResource(Resource):
 class OrdersResource(Resource):
     def get(self):
         orders = Orders.query.all()
-        return jsonify(orders_schema.dump(orders))
+        return jsonify(orders_schema.dump(orders, many=True))
 
     def post(self):
         parser = reqparse.RequestParser()

@@ -13,6 +13,7 @@ flask-sqlalchemy = "*"
 marshmallow-sqlalchemy = "*"
 alembic = "*"
 sqlalchemy-serializer = "*"
+flask-cors = "*"
 
 [dev-packages]
 
