@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import '../App.css';
+import { registerUser } from '../Services/api';
 
 const SignupForm = ({ onBackToLogin }) => {
   const [formData, setFormData] = useState({
@@ -19,8 +19,14 @@ const SignupForm = ({ onBackToLogin }) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/register', formData);
-      console.log('User registered:', response.data);
+      const response = await registerUser(formData);
+      console.log('response:', response);
+
+      if (response && response.data) {
+        console.log('User registered:', response.data);
+      } else {
+        console.error('Unexpected response:', response);
+      }
     } catch (error) {
       console.error('Registration failed:', error.response.data);
     }
