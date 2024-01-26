@@ -25,7 +25,7 @@ function App() {
           </div>
           <div className='nav-list'>
             <div id='log-list'>
-              <Link to="/authpage/login">Login</Link>
+              <Link to="/authpage/signup">Login</Link>
             </div>
             <div>
               <Link to="/">Explore</Link>

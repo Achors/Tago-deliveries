@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import '../App.css';
 
-const SignupForm = () => {
+const SignupForm = ({ onBackToLogin }) => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -30,7 +30,7 @@ const SignupForm = () => {
     <div className="signup-form-container">
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit} className="signup-form">
-        <label htmlFor="username">Username:</label>
+      <label htmlFor="username">Username:</label>
         <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} required />
 
         <label htmlFor="email">Email:</label>
@@ -43,14 +43,14 @@ const SignupForm = () => {
         <input type="text" id="city" name="city" value={formData.city} onChange={handleChange} />
 
         <button type="submit">Sign Up</button>
-
-        {/* Add the Back button */}
-        <Link to="/login">
-          <button type="button">Back</button>
-        </Link>
+        <button type="button" onClick={onBackToLogin}>Back to Login</button>
       </form>
     </div>
   );
+};
+
+SignupForm.propTypes = {
+  onBackToLogin: PropTypes.func.isRequired,
 };
 
 export default SignupForm;

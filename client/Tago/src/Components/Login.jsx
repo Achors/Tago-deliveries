@@ -1,25 +1,20 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import '../App.css';
+import PropTypes from 'prop-types';
 
-
-const Login = () => {
+const Login = ({ onSwitchToSignUp }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
 
-  const login = () => {
-    // authentication logic
-    console.log('Username:', username);
-    console.log('Password:', password);
-
-    navigate('/Products');
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log('Login clicked');
+    // login logic 
   };
 
   return (
-    <div className="login-container">
+    <div className="log-container">
       <h1>Login</h1>
-      <form onSubmit={login}>
+      <form onSubmit={handleLogin}>
         <label htmlFor="username">Username:</label>
         <input
           type="text"
@@ -28,7 +23,6 @@ const Login = () => {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-
         <label htmlFor="password">Password:</label>
         <input
           type="password"
@@ -37,15 +31,15 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-
         <button type="submit">Login</button>
-
-        <Link to="/authpage/signup">
-          <button type="button">Sign Up</button>
-        </Link>
+        <button type="button" onClick={onSwitchToSignUp}>Sign Up</button>
       </form>
     </div>
   );
+};
+
+Login.propTypes = {
+  onSwitchToSignUp: PropTypes.func.isRequired,
 };
 
 export default Login;
