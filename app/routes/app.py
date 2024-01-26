@@ -1,8 +1,9 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 from flask_migrate import Migrate
 from flask_cors import CORS
-from config import db
+from .config import db
 from models import db
+import jwt
 from route import routes
 
 app = Flask(__name__)

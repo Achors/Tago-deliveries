@@ -24,14 +24,14 @@ function App() {
             <span className="logo">TAGO - Del</span>
           </div>
           <div className='nav-list'>
-            <div id='log-list'>
-              <Link to="/authpage/signup">Login</Link>
+            <div >
+              <Link id='log-list' to="/authpage/signup">Login</Link>
             </div>
             <div>
-              <Link to="/">Explore</Link>
+              <Link id='log-list' to="/">Explore</Link>
             </div>
             <div>
-              <Link to="/cart">Cart ({cart.length})</Link>
+              <Link id='log-list' to="/cart">Cart ({cart.length})</Link>
             </div>
           </div>
         </div>
