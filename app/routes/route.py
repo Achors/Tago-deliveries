@@ -5,7 +5,7 @@ from User import UserResource, UsersResource
 from Authorization import AuthorizationResource, AuthorizationsResource
 from store import StoreResource, StoresResource
 from orders import OrderResource, OrdersResource
-from profile import ProfileResource, ProfilesResource
+from .profile import ProfileResource, ProfilesResource
 from Product import ProductResource, ProductsResource
 
 routes = Blueprint('routes', __name__)
@@ -28,3 +28,5 @@ api.add_resource(OrdersResource, '/orders')
 
 api.add_resource(StoreResource, '/store/<int:store_id>')
 api.add_resource(StoresResource, '/stores')
+
+

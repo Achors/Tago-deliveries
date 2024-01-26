@@ -1,14 +1,27 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 const Login = ({ onSwitchToSignUp }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     console.log('Login clicked');
-    // login logic 
+    
+    
+    try {
+      const response = await axios.post('http://127.0.0.1:5000/login', {
+        username,
+        password,
+      });
+
+      console.log('Login successful:', response.data);
+
+    } catch (error) {
+      console.error('Login failed:', error.response.data);
+    }
   };
 
   return (
