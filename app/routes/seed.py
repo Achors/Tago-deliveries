@@ -1,17 +1,22 @@
-from app import app, db
-from .models import User, Profile, Product, Orders, Store
+from app import app
+from models import db, User, Profile, Product, Orders, Store
 from datetime import datetime
 
 
 with app.app_context():
+
+    db.create_all()
+
+
     users = [
-        {'username': 'adolf', 'email': 'here@gmail.com', 'password': 'password', 'city': 'New York'},
-        {'username': 'nyerere', 'email': 'there@gmail.com', 'password': 'password', 'city': 'Los Angeles'},
+        {'user_id':'11', 'username': 'adolf', 'email': 'adolf@gmail.com', 'password': 'password', 'city': 'New York'},
+        {'user_id':'12','username': 'nyerere', 'email': 'nyerere@gmail.com', 'password': 'password', 'city': 'Los Angeles'},
         
     ]
 
-    for user in users:
-        new_user = User(**user)
+    for user_data in users:
+        user_data['registration_date'] = datetime.utcnow()
+        new_user = User(**user_data)
         db.session.add(new_user)
 
     db.session.commit()
@@ -24,7 +29,7 @@ with app.app_context():
     ]
 
     for profile_data in profiles:
-        user = User.query.filter_by(username=profile_data['username']).first()
+        user = User.query.filter_by(username=profile_data['name']).first()
         profile = Profile(**profile_data, user=user)
         db.session.add(profile)
 
@@ -54,6 +59,7 @@ with app.app_context():
     ]
 
     for order_data in orders:
+        order_data['date'] = datetime.utcnow()
         order = Orders(**order_data)
         db.session.add(order)
 

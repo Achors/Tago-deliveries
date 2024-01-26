@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse
-from .models import db, Authorization
-from .schema import AuthorizationSchema
+from models import db, Authorization
+from schema import AuthorizationSchema
 
 authorization_schema = AuthorizationSchema()
 authorizations_schema = AuthorizationSchema(many=True)

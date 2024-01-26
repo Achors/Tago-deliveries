@@ -1,11 +1,11 @@
 from flask import Blueprint
 from flask_restful import Api
-from .User import UserResource, UsersResource
-from .Authorization import AuthorizationResource, AuthorizationsResource
-from .store import StoreResource, StoresResource
-from .orders import OrderResource, OrdersResource
-from .profile import ProfileResource, ProfilesResource
-from .Product import ProductResource, ProductsResource
+from User import UserResource, UsersResource
+from Authorization import AuthorizationResource, AuthorizationsResource
+from store import StoreResource, StoresResource
+from orders import OrderResource, OrdersResource
+from profile import ProfileResource, ProfilesResource
+from Product import ProductResource, ProductsResource
 
 routes = Blueprint('routes', __name__)
 api = Api(routes)

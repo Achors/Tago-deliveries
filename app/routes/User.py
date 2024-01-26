@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse
-from .models import db, User
-from .schema import UserSchema
+from models import db, User
+from schema import UserSchema
 from flask import jsonify
 
 user_schema = UserSchema()
