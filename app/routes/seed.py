@@ -1,4 +1,5 @@
 from app import app
+from config import db
 from models import db, User, Profile, Product, Orders, Store
 from datetime import datetime
 

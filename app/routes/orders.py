@@ -1,5 +1,6 @@
 from flask_restful import Resource, reqparse
 from models import db, Orders
+from config import db
 from schema import OrdersSchema
 from flask import jsonify
 

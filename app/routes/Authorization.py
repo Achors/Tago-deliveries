@@ -1,4 +1,5 @@
 from flask_restful import Resource, reqparse
+from config import db
 from models import db, Authorization
 from schema import AuthorizationSchema
 

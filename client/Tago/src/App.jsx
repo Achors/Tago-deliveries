@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 import ExplorePage from './Components/Products';
 import CartPage from './Components/cartPage';
-import Login from './Components/Login';
+import AuthPage from './Components/AuthPage';
+import './App.css';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -24,7 +25,7 @@ function App() {
           </div>
           <div className='nav-list'>
             <div id='log-list'>
-              <Link to="/login">Login</Link>
+              <Link to="/authpage/login">Login</Link>
             </div>
             <div>
               <Link to="/">Explore</Link>
@@ -40,7 +41,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ExplorePage addToCart={addToCart} />} />
           <Route path="/cart" element={<CartPage cart={cart} />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/authpage/*" element={<AuthPage />} />
         </Routes>
       </div>
     </Router>

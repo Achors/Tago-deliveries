@@ -1,4 +1,5 @@
 from flask import Blueprint
+from config import db
 from flask_restful import Api
 from User import UserResource, UsersResource
 from Authorization import AuthorizationResource, AuthorizationsResource

@@ -1,5 +1,6 @@
 from flask_restful import Resource, reqparse
 from models import db, Profile
+from config import db
 from schema import ProfileSchema
 from flask import jsonify
 

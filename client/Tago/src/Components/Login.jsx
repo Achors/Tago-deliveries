@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import '../App.css';
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -11,8 +13,7 @@ const Login = () => {
     console.log('Username:', username);
     console.log('Password:', password);
 
-    
-    navigate('/Products'); 
+    navigate('/Products');
   };
 
   return (
@@ -38,6 +39,10 @@ const Login = () => {
         />
 
         <button type="submit">Login</button>
+
+        <Link to="/authpage/signup">
+          <button type="button">Sign Up</button>
+        </Link>
       </form>
     </div>
   );
